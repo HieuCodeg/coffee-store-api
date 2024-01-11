@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.hieucodeg'
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':repository')
+    implementation project(':cloudinary')
+    implementation project(':utils')
+    implementation project(':exception')
+    implementation 'com.cloudinary:cloudinary-http44:1.27.0'
+}

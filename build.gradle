@@ -1,0 +1,91 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.6'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.hieucodeg'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks.named('bootBuildImage') {
+    builder = 'paketobuildpacks/builder-jammy-base:latest'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+
+allprojects {
+    group = 'com.hieucodeg'
+    version = '0.0.1-SNAPSHOT'
+
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    dependencies {
+        implementation 'org.yaml:snakeyaml:1.27'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+        implementation 'org.springframework.boot:spring-boot-autoconfigure'
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+        implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+        runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+        runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+        implementation 'com.mysql:mysql-connector-j:8.0.33'
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        implementation 'org.springframework.boot:spring-boot-configuration-processor'
+        implementation 'commons-fileupload:commons-fileupload:1.3.1'
+        implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
+//        implementation 'com.vladmihalcea:hibernate-types-52:2.16.2'
+        implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
+        implementation 'com.sun.mail:javax.mail:1.6.2'
+        implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    }
+
+    dependencyManagement {
+        imports {
+//			mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "org.springframework.boot:spring-boot-starter-parent:3.1.6"
+        }
+    }
+}
+
+bootJar {
+    enabled = false
+}
+bootBuildImage{
+    enabled = false
+}
+jar {
+    enabled = true
+}

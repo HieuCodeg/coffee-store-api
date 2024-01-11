@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.hieucodeg'
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+    implementation project(':exception')
+    implementation project(':domain')
+    implementation project(':repository')
+    implementation project(':service')
+    implementation project(':security')
+    implementation project(':api')
+    implementation project(':controller')
+    implementation project(':cloudinary')
+    implementation project(':swagger')
+    implementation project(':utils')
+    implementation project(':web')
+}

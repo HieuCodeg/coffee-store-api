@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.hieucodeg'
+version = '0.0.1-SNAPSHOT'
+//
+//java {
+//    sourceCompatibility = '17'
+//}
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//dependencies {
+//    implementation 'org.springframework.boot:spring-boot-starter'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//}
+//
+//tasks.named('bootBuildImage') {
+//    builder = 'paketobuildpacks/builder-jammy-base:latest'
+//}
+//
+//tasks.named('test') {
+//    useJUnitPlatform()
+//}
